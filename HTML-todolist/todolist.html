@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TO DO LIST</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>To-Do List</h2>
+
+    <input type="text" id="task" placeholder="Enter task">
+    <button id="addBtn">Add</button>
+
+    <ul id="list"></ul>
+    <button id="clearBtn">Clear All</button>
+
+</div>
+
+<script>
+    const taskInput = document.getElementById("task");
+    const addBtn = document.getElementById("addBtn");
+    const list = document.getElementById("list");
+    const clearBtn = document.getElementById("clearBtn");
+
+    addBtn.addEventListener("click", function () {
+        const text = taskInput.value.trim();
+
+        if (text === "") return;
+
+        const li = document.createElement("li");
+        li.textContent = text;
+
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "Remove";
+
+        removeBtn.addEventListener("click", function () {
+            li.remove();
+        });
+
+        li.appendChild(removeBtn);
+
+        list.appendChild(li);
+
+        taskInput.value = "";
+    });
+
+    clearBtn.addEventListener("click", function () {
+        list.innerHTML = "";
+    });
+</script>
+
+</body>
+</html>

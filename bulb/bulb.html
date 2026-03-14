@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            BULB
+        </title>
+        <style>
+            body{
+               text-align: center; 
+               vertical-align: middle;
+            }
+            button{
+                padding: 10px;
+                margin: 10px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <img id="image" src="bulb_off.png">
+        <br>
+
+        <button onclick="changeImageon()"> ON </button>
+        <button onclick="changeImageoff()"> OFF </button>  
+
+        <script>
+            function changeImageon() {
+                var im = document.getElementById('image');
+                im.src = "bulb_on.png"
+            }
+
+            function changeImageoff() {
+                var im = document.getElementById('image');
+                im.src = "bulb_off.png"
+            }
+        </script>
+    </body>
+</html>
